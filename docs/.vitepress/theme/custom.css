@@ -102,9 +102,13 @@ div[class*='language-'] {
   border-radius: 8px;
 }
 
-/* ===== 随机壁纸（安全版）===== */
 
-/* 只装饰首页 hero 区域的背景 */
+
+/* 深色模式壁纸更明显一点 */
+.dark .home .VPHero .container::before {
+  opacity: 0.08;
+}
+/* ===== 随机壁纸（安全版）===== */
 .home .VPHero .container {
   position: relative;
 }
@@ -120,13 +124,12 @@ div[class*='language-'] {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.06;
+  opacity: 0.15;  /* 从 0.06 改成 0.15，更明显 */
   z-index: -1;
   pointer-events: none;
   border-radius: 24px;
 }
 
-/* 深色模式壁纸更明显一点 */
 .dark .home .VPHero .container::before {
-  opacity: 0.08;
+  opacity: 0.2;  /* 从 0.08 改成 0.2，深色模式更明显 */
 }
