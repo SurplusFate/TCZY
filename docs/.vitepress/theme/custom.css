@@ -231,3 +231,43 @@ div[class*='language-'] {
 .VPContent th {
   background: var(--vp-c-brand-soft);
 }
+/* ===== 修复大纲导航显示 ===== */
+
+/* 确保页面大纲在最上层 */
+.VPDocAsideOutline {
+  position: relative;
+  z-index: 10;
+}
+
+.VPDocAsideOutline .content {
+  position: relative;
+  z-index: 11;
+}
+
+/* 大纲链接样式 */
+.VPDocAsideOutline .outline-link {
+  position: relative;
+  z-index: 12;
+}
+
+/* 移动端大纲 */
+.VPLocalNavOutlineDropdown {
+  position: relative;
+  z-index: 100;
+}
+
+.VPLocalNavOutlineDropdown .items {
+  position: absolute;
+  z-index: 101;
+  background: var(--vp-c-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* 确保大纲按钮可点击 */
+.VPLocalNavOutlineDropdown button {
+  position: relative;
+  z-index: 102;
+}
