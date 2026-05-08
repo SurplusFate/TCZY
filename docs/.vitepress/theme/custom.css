@@ -101,3 +101,16 @@ body {
 div[class*='language-'] {
   border-radius: 8px;
 }
+/* ===== 首页渐变背景 ===== */
+.VPHero {
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom left, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
+}
+
+/* 深色模式背景 */
+.dark .VPHero {
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom left, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+}
