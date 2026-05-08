@@ -66,3 +66,38 @@ body {
     transform: translateY(0);
   }
 }
+/* ===== 滚动条美化 ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-2);
+  border-radius: 3px;
+}
+
+/* ===== 图片圆角阴影 ===== */
+.VPContent img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== 表格美化 ===== */
+.VPContent table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.VPContent th {
+  background: var(--vp-c-brand-soft);
+}
+
+/* ===== 代码块圆角 ===== */
+div[class*='language-'] {
+  border-radius: 8px;
+}
