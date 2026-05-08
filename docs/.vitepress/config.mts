@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  base：'/TCZY/'
+  base：'/TCZY/',
   title: '我的笔记',
   description: '基于 Obsidian 的知识库',
   lang: 'zh-CN',
