@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base：'/TCZY/'
   title: '我的笔记',
   description: '基于 Obsidian 的知识库',
   lang: 'zh-CN',
@@ -8,8 +9,8 @@ export default defineConfig({
 
   themeConfig: {
     nav: [
-      { text: '首页', link: '/TCZY/' },
-      { text: '笔记', link: '/TCZY/docs/notes/' },
+      { text: '首页', link: '/' },
+      { text: '笔记', link: '/docs/notes/' },
     ],
 
     sidebar: {
@@ -17,7 +18,7 @@ export default defineConfig({
         {
           text: '笔记目录',
           items: [
-            { text: '所有笔记', link: '/notes/' },
+            { text: '所有笔记', link: '/docs/notes/' },
           ],
         },
       ],
