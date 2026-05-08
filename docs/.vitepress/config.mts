@@ -9,7 +9,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/TCZY/' },
-      { text: '笔记', link: '/TCZY/notes/' },
+      { text: '笔记', link: '/TCZY/docs/notes/' },
     ],
 
     sidebar: {
