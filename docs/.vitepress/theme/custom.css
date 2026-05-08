@@ -101,35 +101,3 @@ body {
 div[class*='language-'] {
   border-radius: 8px;
 }
-
-/* ===== 随机壁纸 ===== */
-body {
-  background-image: url('https://picsum.photos/1920/1080');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-}
-
-/* 内容区域半透明，让背景透出来 */
-.VPContent {
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.dark .VPContent {
-  background: rgba(15, 23, 42, 0.92);
-}
-
-/* 首页更透明 */
-.home .VPContent {
-  background: transparent;
-}
-
-/* 导航栏半透明 */
-.VPNav {
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(12px);
-}
-
-.dark .VPNav {
-  background: rgba(15, 23, 42, 0.85) !important;
-}
