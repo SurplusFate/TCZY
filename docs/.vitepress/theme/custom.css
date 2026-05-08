@@ -252,3 +252,29 @@ div[class*='language-'] {
   position: relative;
   z-index: 102;
 }
+/* ===== 修复移动端侧边栏 ===== */
+
+/* 侧边栏遮罩层 */
+.VPBackdrop {
+  z-index: 200 !important;
+}
+
+/* 侧边栏本身 */
+.VPSidebar {
+  z-index: 201 !important;
+}
+
+/* 侧边栏内的菜单项 */
+.VPSidebar .items {
+  z-index: 202 !important;
+}
+
+/* 汉堡菜单按钮 */
+.VPNavBarHamburger {
+  z-index: 203 !important;
+}
+
+/* 确保导航栏在侧边栏之上 */
+.VPNav {
+  z-index: 204 !important;
+}
