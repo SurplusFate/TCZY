@@ -114,3 +114,31 @@ div[class*='language-'] {
               radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
               radial-gradient(ellipse at bottom left, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
 }
+/* ===== 随机壁纸（安全版）===== */
+
+/* 只装饰首页 hero 区域的背景 */
+.home .VPHero .container {
+  position: relative;
+}
+
+.home .VPHero .container::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+  background-image: url('https://picsum.photos/1920/1080?random=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+/* 深色模式壁纸更明显一点 */
+.dark .home .VPHero .container::before {
+  opacity: 0.08;
+}
