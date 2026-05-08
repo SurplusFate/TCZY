@@ -8,8 +8,8 @@ export default defineConfig({
 
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
-      { text: '笔记', link: '/notes/' },
+      { text: '首页', link: '/TCZY/' },
+      { text: '笔记', link: '/TCZY/notes/' },
     ],
 
     sidebar: {
