@@ -24,3 +24,45 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+/* ===== 卡片悬停效果 ===== */
+.VPFeatures .VPFeature {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .VPFeatures .VPFeature:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 首页动画 ===== */
+.VPHero .name {
+  animation: fadeInUp 0.8s ease;
+}
+
+.VPHero .text {
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.VPHero .tagline {
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.VPHero .actions {
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
