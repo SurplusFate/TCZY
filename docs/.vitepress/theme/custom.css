@@ -104,25 +104,6 @@ div[class*='language-'] {
 .VPContent th {
   background: var(--vp-c-brand-soft);
 }
-
-/* ===== 随机背景壁纸 ===== */
-.VPHero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('https://picsum.photos/1920/1080');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  z-index: -1;
-  border-radius: 12px;
-  margin: -20px;
-  padding: 20px;
-}
 /* ===== 样式细节 ===== */
 
 /* 导航栏毛玻璃效果 */
