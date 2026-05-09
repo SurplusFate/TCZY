@@ -32,7 +32,7 @@ function getNotesSidebar() {
 
 export default defineConfig({
   base: '/TCZY/',
-  title: '同创主悦',
+  title: '首页',
   description: '基于 Obsidian 的知识库',
   lang: 'zh-CN',
   cleanUrls: true,
