@@ -2,33 +2,59 @@ import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
 
-// 自动扫描 notes 目录生成侧边栏
+// 递归扫描 notes 目录生成侧边栏
 function getNotesSidebar() {
   const notesDir = path.resolve(__dirname, '../notes')
-  const items = [{ text: '所有笔记', link: '/notes/' }]
   
-  try {
-    const files = fs.readdirSync(notesDir)
-    files
-      .filter(file => file.endsWith('.md') && file !== 'index.md')
-      .sort()
-      .forEach(file => {
-        const name = file.replace('index.md', '')
-        // 将文件名作为标题（可以改成读取文件中的第一个标题）
-        const title = name
-        items.push({ text: title, link: `/notes/${name}` })
+  function scanDir(dir, basePath = '') {
+    const items = []
+    
+    try {
+      const entries = fs.readdirSync(dir, { withFileTypes: true })
+      
+      // 先处理文件夹
+      const folders = entries.filter(e => e.isDirectory()).sort()
+      const files = entries.filter(e => e.isFile() && e.name.endsWith('.md')).sort()
+      
+      // 处理文件（排除 index.md）
+      files.forEach(file => {
+        const name = file.name.replace('.md', '')
+        if (name !== 'index') {
+          const link = basePath ? `/notes/${basePath}/${name}` : `/notes/${name}`
+          items.push({ text: name, link: link })
+        }
       })
-  } catch (e) {
-    // 目录不存在时忽略
+      
+      // 递归处理子文件夹
+      folders.forEach(folder => {
+        const folderPath = path.join(dir, folder.name)
+        const children = scanDir(folderPath, basePath ? `${basePath}/${folder.name}` : folder.name)
+        
+        if (children.length > 0) {
+          items.push({
+            text: folder.name,
+            collapsed: false,
+            items: children
+          })
+        }
+      })
+    } catch (e) {
+      // 忽略错误
+    }
+    
+    return items
   }
+  
+  const allItems = scanDir(notesDir)
   
   return [
     {
       text: '笔记目录',
-      items: items,
+      items: [{ text: '所有笔记', link: '/notes/' }, ...allItems],
     },
   ]
 }
+
 
 export default defineConfig({
   base: '/TCZY/',
