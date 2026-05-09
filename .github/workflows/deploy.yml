@@ -19,10 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
+      # 自动为每个分类创建 images 文件夹
+      - name: 自动创建图片文件夹
+        run: |
+          for dir in docs/notes/*/; do
+            if [ -d "$dir" ] && [ ! -d "$dir/images" ]; then
+              mkdir -p "$dir/images"
+              touch "$dir/images/.gitkeep"
+              echo "创建: $dir/images"
+            fi
+          done
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
       - run: npm install
       - run: npm run docs:build
       - uses: actions/upload-pages-artifact@v3
