@@ -7,7 +7,7 @@ function autoSidebar() {
   const notesPath = path.resolve(__dirname, '../notes')
   const result: any[] = [{ text: '所有笔记', link: '/notes/' }]
   
-  // 递归扫描目录
+  // 递归扫描目录，返回 items 数组
   function scanDir(dirPath: string, basePath: string): any[] {
     const items: any[] = []
     
@@ -31,6 +31,7 @@ function autoSidebar() {
         }
       }
       
+      // 添加当前目录的文件
       for (const file of files) {
         items.push({
           text: file,
@@ -38,12 +39,13 @@ function autoSidebar() {
         })
       }
       
+      // 递归添加子目录（作为当前目录的子项）
       for (const subDir of subDirs) {
         const subDirPath = path.join(dirPath, subDir)
         const subItems = scanDir(subDirPath, `${basePath}/${subDir}`)
         
         if (subItems.length > 0) {
-          result.push({
+          items.push({
             text: subDir,
             collapsed: false,
             items: subItems
@@ -66,18 +68,14 @@ function autoSidebar() {
       const folderName = dir.name
       const folderPath = path.join(notesPath, folderName)
       
+      // 扫描这个分类目录及其子目录
       const items = scanDir(folderPath, `/notes/${folderName}`)
       
-      const hasDirectFiles = items.length > 0
-      const subDirs = fs.readdirSync(folderPath, { withFileTypes: true })
-        .filter(e => e.isDirectory() && !e.name.startsWith('.'))
-        .map(e => e.name)
-      
-      if (hasDirectFiles || subDirs.length > 0) {
+      if (items.length > 0) {
         result.push({
           text: folderName,
           collapsed: false,
-          items: items.length > 0 ? items : undefined
+          items: items
         })
       }
     }
