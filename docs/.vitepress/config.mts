@@ -86,7 +86,7 @@ export default defineConfig({
         }
       }
     },
-    footer: { message: '基于 VitePress 搭建', copyright: '© 2025' },
+    footer: { message: '基于 VitePress 搭建', copyright: '© 2026' },
   },
   markdown: { math: true },
 })
