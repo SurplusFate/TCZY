@@ -93,15 +93,26 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '笔记', link: '/notes/' },
     ],
+    
     sidebar: {
       '/notes/': autoSidebar(),
     },
+    
+    outlineTitle: '本页内容',
+    
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    
     socialLinks: [
       { icon: 'github', link: 'https://github.com/SurplusFate/TCZY' },
     ],
+    
     search: {
       provider: 'local',
     },
+    
     footer: {
       message: '基于 VitePress 搭建',
       copyright: '© 2025',
