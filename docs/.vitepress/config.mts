@@ -2,6 +2,44 @@ import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
 
+// 递归获取所有markdown文件
+function getMarkdownFiles(dirPath: string, basePath: string = ''): any[] {
+  const result: any[] = []
+  
+  try {
+    const items = fs.readdirSync(dirPath, { withFileTypes: true })
+    
+    for (const item of items) {
+      const fullPath = path.join(dirPath, item.name)
+      const relativePath = basePath ? `${basePath}/${item.name}` : item.name
+      
+      if (item.isDirectory() && item.name !== 'images') {
+        // 递归扫描子文件夹
+        const children = getMarkdownFiles(fullPath, relativePath)
+        if (children.length > 0) {
+          result.push({
+            name: item.name,
+            path: relativePath,
+            isDir: true,
+            children: children
+          })
+        }
+      } else if (item.isFile() && item.name.endsWith('.md') && item.name !== 'index.md') {
+        // 添加markdown文件
+        result.push({
+          name: item.name.replace('.md', ''),
+          path: relativePath.replace('.md', ''),
+          isDir: false
+        })
+      }
+    }
+  } catch (e) {
+    console.error('扫描失败:', e)
+  }
+  
+  return result
+}
+
 // 自动扫描生成侧边栏
 function autoSidebar() {
   const notesPath = path.resolve(__dirname, '../notes')
@@ -11,22 +49,36 @@ function autoSidebar() {
     const dirs = fs.readdirSync(notesPath, { withFileTypes: true })
     
     for (const dir of dirs) {
-      if (!dir.isDirectory()) continue
+      if (!dir.isDirectory() || dir.name === 'images') continue
       
       const folderName = dir.name
       const folderPath = path.join(notesPath, folderName)
-      const files = fs.readdirSync(folderPath)
-        .filter(f => f.endsWith('.md') && f !== 'index.md' && !f.startsWith('.'))
-        .map(f => f.replace('.md', ''))
+      const items = getMarkdownFiles(folderPath)
       
-      if (files.length > 0) {
+      // 转换文件结构为侧边栏格式
+      function convertToSidebar(items: any[], parentPath: string = ''): any[] {
+        return items.map(item => {
+          const fullPath = parentPath ? `${parentPath}/${item.name}` : item.name
+          if (item.isDir) {
+            return {
+              text: item.name,
+              collapsed: false,
+              items: convertToSidebar(item.children, fullPath)
+            }
+          } else {
+            return {
+              text: item.name,
+              link: `/notes/${folderName}/${fullPath}`
+            }
+          }
+        })
+      }
+      
+      if (items.length > 0) {
         result.push({
           text: folderName,
           collapsed: false,
-          items: files.map(name => ({
-            text: name,
-            link: `/notes/${folderName}/${name}`
-          }))
+          items: convertToSidebar(items)
         })
       }
     }
@@ -46,27 +98,52 @@ function scanNotes() {
     const dirs = fs.readdirSync(notesPath, { withFileTypes: true })
     
     for (const dir of dirs) {
-      if (!dir.isDirectory()) continue
+      if (!dir.isDirectory() || dir.name === 'images') continue
       
       const folderName = dir.name
       const folderPath = path.join(notesPath, folderName)
-      const files = fs.readdirSync(folderPath)
-        .filter(f => f.endsWith('.md') && f !== 'index.md' && !f.startsWith('.'))
+      const items = getMarkdownFiles(folderPath)
       
-      const children = files.map(f => {
-        const name = f.replace('.md', '')
-        return {
-          name,
-          path: `/TCZY/notes/${folderName}/${name}`
+      // 计算总文件数（递归）
+      function countFiles(items: any[]): number {
+        let count = 0
+        for (const item of items) {
+          if (item.isDir) {
+            count += countFiles(item.children)
+          } else {
+            count++
+          }
         }
-      })
+        return count
+      }
       
-      result.push({
-        name: folderName,
-        path: `/TCZY/notes/${folderName}`,
-        count: files.length,
-        children: children.slice(0, 5)
-      })
+      // 获取所有文件列表（平铺）
+      function getAllFiles(items: any[], parentPath: string = ''): any[] {
+        const files: any[] = []
+        for (const item of items) {
+          const fullPath = parentPath ? `${parentPath}/${item.name}` : item.name
+          if (item.isDir) {
+            files.push(...getAllFiles(item.children, fullPath))
+          } else {
+            files.push({
+              name: item.name,
+              path: `/TCZY/notes/${folderName}/${fullPath}`
+            })
+          }
+        }
+        return files
+      }
+      
+      const allFiles = getAllFiles(items)
+      
+      if (items.length > 0) {
+        result.push({
+          name: folderName,
+          path: `/TCZY/notes/${folderName}`,
+          count: countFiles(items),
+          children: allFiles.slice(0, 5)
+        })
+      }
     }
   } catch (e) {
     console.error('扫描笔记失败:', e)
@@ -89,39 +166,30 @@ export default defineConfig({
   },
   
   themeConfig: {
-    // 导航
     nav: [
       { text: '首页', link: '/' },
       { text: '笔记', link: '/notes/' },
     ],
     
-    // 侧边栏
     sidebar: {
       '/notes/': autoSidebar(),
     },
     
-    // 目录标题
     outlineTitle: '本页内容',
     
-    // 文档页脚
     docFooter: {
       prev: '上一页',
       next: '下一页'
     },
     
-    // 最后更新时间
     lastUpdatedText: '最后更新',
     
-    // 暗黑模式切换
     darkModeSwitchLabel: '外观',
     
-    // 侧边栏菜单标签
     sidebarMenuLabel: '菜单',
     
-    // 返回顶部标签
     returnToTopLabel: '返回顶部',
     
-    // 搜索
     search: {
       provider: 'local',
       options: {
@@ -143,12 +211,10 @@ export default defineConfig({
       }
     },
     
-    // 社交链接
     socialLinks: [
       { icon: 'github', link: 'https://github.com/SurplusFate/TCZY' },
     ],
     
-    // 页脚
     footer: {
       message: '基于 VitePress 搭建',
       copyright: '© 2025',
