@@ -155,7 +155,6 @@ function scanNotes() {
 export default defineConfig({
   base: '/TCZY/',
   title: '首页',
-  ignoreDeadLinks: true,    // ← 忽略死链接检查
   description: '基于 Obsidian 的知识库',
   lang: 'zh-CN',
   cleanUrls: true,
