@@ -224,5 +224,6 @@ export default defineConfig({
   
   markdown: {
     math: true,
+    html: true,
   },
 })
