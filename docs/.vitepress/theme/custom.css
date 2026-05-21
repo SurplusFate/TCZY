@@ -118,8 +118,14 @@ div[class*='language-'] {
 .dark div[style*="background:rgba(236,72,153,0.06)"],
 .dark div[style*="background:rgba(236,72,153, 0.06)"],
 .dark div[style*="background:#fff"],
-.dark div[style*="background: #fff"] {
-  background-color: rgba(30, 32, 40, 0.8) !important;
+.dark div[style*="background: #fff"],
+.dark div[style*="background: #ffffff"],
+.dark div[style*="background:#ffffff"],
+.dark div[style*="background: rgb(255,255,255)"],
+.dark div[style*="background:rgb(255,255,255)"],
+.dark div[style*="background: rgba(255,255,255,1)"],
+.dark div[style*="background:rgba(255,255,255,1)"] {
+  background-color: rgba(50, 54, 68, 0.9) !important;
 }
 
 .dark div[style*="background:rgba(102,126,234,0.08)"],
