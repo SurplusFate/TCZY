@@ -165,7 +165,23 @@ div[class*='language-'] {
 .dark span[style*="color:#555"],
 .dark span[style*="color: #555"],
 .dark span[style*="color:#666"],
-.dark span[style*="color: #666"] {
+.dark span[style*="color: #666"],
+.dark div span[style*="color:#333"],
+.dark div span[style*="color: #333"],
+.dark div span[style*="color:#555"],
+.dark div span[style*="color: #555"],
+.dark div span[style*="color:#666"],
+.dark div span[style*="color: #666"] {
+  color: #c9d1d9 !important;
+}
+
+/* 强制覆盖所有内联样式文字颜色 */
+.dark [style*="color:#333"],
+.dark [style*="color: #333"],
+.dark [style*="color:#555"],
+.dark [style*="color: #555"],
+.dark [style*="color:#666"],
+.dark [style*="color: #666"] {
   color: #c9d1d9 !important;
 }
 
