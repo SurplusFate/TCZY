@@ -124,7 +124,11 @@ div[class*='language-'] {
 .dark div[style*="background: rgb(255,255,255)"],
 .dark div[style*="background:rgb(255,255,255)"],
 .dark div[style*="background: rgba(255,255,255,1)"],
-.dark div[style*="background:rgba(255,255,255,1)"] {
+.dark div[style*="background:rgba(255,255,255,1)"],
+.dark div[style*="background:rgba(255,255,255,0.8)"],
+.dark div[style*="background: rgba(255,255,255,0.8)"],
+.dark div[style*="background:rgba(255,255,255,0.9)"],
+.dark div[style*="background: rgba(255,255,255,0.9)"] {
   background-color: rgba(50, 54, 68, 0.9) !important;
 }
 
