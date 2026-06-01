@@ -6,7 +6,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3",
-    "markdown-it-mathjax3": "^4.3.2"
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }
