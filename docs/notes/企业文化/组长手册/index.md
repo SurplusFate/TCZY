@@ -1,13 +1,109 @@
+# 组长手册
+
+<div style="background:linear-gradient(135deg,rgba(102,126,234,0.1) 0%,rgba(34,197,94,0.1) 100%);border:2px solid rgba(102,126,234,0.2);padding:30px;border-radius:16px;margin:20px 0;">
+
+<p style="margin:0 0 15px 0;font-size:16px;color:#333;line-height:1.8;">
 亲爱的小伙伴：
+</p>
 
+<p style="margin:0 0 15px 0;font-size:16px;color:#333;line-height:1.8;">
 感谢你与同创主悦携手同行！
+</p>
 
-恭喜你脱去新手的标签，达到组长的标准，真正开始触摸平台的机会，顺利来到你在同创主悦璀璨职业生涯的第二篇章！让我们一起juice一下！
+<p style="margin:0 0 20px 0;font-size:15px;color:#333;line-height:1.8;">
+恭喜你脱去新手的标签，达到组长的标准，真正开始触摸平台的机会，顺利来到你在同创主悦璀璨职业生涯的第二篇章！让我们一起 <strong style="color:#667eea;">Juice</strong> 一下！
+</p>
 
-组长是队员最近距离接触到的榜样，成为组长，是对你态度、作业技巧、责任心、学习与教育能力的初步肯定。以身作则做好榜样、带人、建队是组长工作内容的主旋律，在此过程中，你将作为基层的管理员，直接负责达成工作区域内的利润指标；你将成为传播窗口，直接链接企业机会与新人；你将作为队员的启蒙老师，直接指导与评价队员的作业过程。
+</div>
 
-“万丈高楼平地起”——组长阶段是为管理之路夯实基础的最好机会。在带领新人与团队的过程中，你将具备进阶中级管理层的必备要素：见更多的人、丰富自己的阅历与眼界，拥有宠辱不惊的强悍心态；持续磨练市场技巧并逐渐掌握学习与教育的能力，将优秀变成一种习惯；你也将通过建立属于自己的团队，拥有属于自己的人脉圈。
+---
 
-同创主悦是条通往美好生活的道路，在短暂地停歇庆祝后，让我们带着新的责任与期望继续上路！接下来的征程也许不易，但也必然会收获更大的成就感！
+## 组长的角色定位
 
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px;margin:20px 0;">
+
+<div style="background:rgba(102,126,234,0.08);border:1px solid rgba(102,126,234,0.15);padding:20px;border-radius:12px;">
+<p style="margin:0 0 12px 0;font-size:18px;font-weight:bold;color:#667eea;">⭐ 榜样</p>
+<p style="margin:0;font-size:14px;color:#333;line-height:1.7;">
+组长是队员最近距离接触到的榜样。成为组长，是对你态度、作业技巧、责任心、学习与教育能力的初步肯定。
+</p>
+</div>
+
+<div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);padding:20px;border-radius:12px;">
+<p style="margin:0 0 12px 0;font-size:18px;font-weight:bold;color:#22c55e;">📊 管理员</p>
+<p style="margin:0;font-size:14px;color:#333;line-height:1.7;">
+作为基层的管理员，直接负责达成工作区域内的利润指标。
+</p>
+</div>
+
+<div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);padding:20px;border-radius:12px;">
+<p style="margin:0 0 12px 0;font-size:18px;font-weight:bold;color:#f59e0b;">🔗 传播窗口</p>
+<p style="margin:0;font-size:14px;color:#333;line-height:1.7;">
+直接链接企业机会与新人，是连接公司与新人的桥梁。
+</p>
+</div>
+
+<div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15);padding:20px;border-radius:12px;">
+<p style="margin:0 0 12px 0;font-size:18px;font-weight:bold;color:#ef4444;">👨‍🏫 启蒙老师</p>
+<p style="margin:0;font-size:14px;color:#333;line-height:1.7;">
+直接指导与评价队员的作业过程，是队员成长的第一任导师。
+</p>
+</div>
+
+</div>
+
+---
+
+## 组长的核心工作
+
+<div style="background:rgba(102,126,234,0.06);border:1px solid rgba(102,126,234,0.15);padding:25px;border-radius:16px;margin:20px 0;">
+
+<p style="margin:0 0 20px 0;font-size:16px;font-weight:bold;color:#667eea;">🎯 主旋律</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:12px;">
+<span style="background:rgba(102,126,234,0.1);padding:10px 20px;border-radius:20px;font-size:14px;color:#667eea;font-weight:bold;">以身作则做好榜样</span>
+<span style="background:rgba(34,197,94,0.1);padding:10px 20px;border-radius:20px;font-size:14px;color:#22c55e;font-weight:bold;">带人</span>
+<span style="background:rgba(245,158,11,0.1);padding:10px 20px;border-radius:20px;font-size:14px;color:#f59e0b;font-weight:bold;">建队</span>
+</div>
+
+</div>
+
+---
+
+## 成长价值
+
+<div style="background:linear-gradient(135deg,rgba(102,126,234,0.08) 0%,rgba(34,197,94,0.08) 100%);border:2px solid rgba(102,126,234,0.15);padding:25px;border-radius:16px;margin:20px 0;">
+
+<blockquote style="margin:0 0 20px 0;padding:15px 20px;background:rgba(255,255,255,0.6);border-left:4px solid #667eea;border-radius:0 8px 8px 0;font-size:16px;color:#333;font-weight:bold;">
+"万丈高楼平地起"——组长阶段是为管理之路夯实基础的最好机会。
+</blockquote>
+
+<p style="margin:0 0 15px 0;font-size:14px;color:#333;">在带领新人与团队的过程中，你将具备进阶中级管理层的必备要素：</p>
+
+<div style="display:flex;flex-direction:column;gap:10px;">
+<span style="background:rgba(255,255,255,0.6);padding:12px 16px;border-radius:10px;font-size:14px;color:#333;">✨ 见更多的人、丰富自己的阅历与眼界，拥有宠辱不惊的强悍心态</span>
+<span style="background:rgba(255,255,255,0.6);padding:12px 16px;border-radius:10px;font-size:14px;color:#333;">✨ 持续磨练市场技巧并逐渐掌握学习与教育的能力，将优秀变成一种习惯</span>
+<span style="background:rgba(255,255,255,0.6);padding:12px 16px;border-radius:10px;font-size:14px;color:#333;">✨ 通过建立属于自己的团队，拥有属于自己的人脉圈</span>
+</div>
+
+</div>
+
+---
+
+## 展望未来
+
+<div style="background:linear-gradient(135deg,rgba(239,68,68,0.08) 0%,rgba(245,158,11,0.08) 100%);border:2px solid rgba(239,68,68,0.2);padding:30px;border-radius:16px;margin:20px 0;text-align:center;">
+
+<p style="margin:0 0 20px 0;font-size:16px;color:#333;line-height:1.8;">
+同创主悦是条通往美好生活的道路，在短暂地停歇庆祝后，让我们带着新的责任与期望继续上路！
+</p>
+
+<p style="margin:0 0 20px 0;font-size:15px;color:#333;line-height:1.8;">
+接下来的征程也许不易，但也必然会收获更大的成就感！
+</p>
+
+<p style="margin:0;font-size:20px;font-weight:bold;color:#667eea;">
 让我们一起创造美好的生活，Juice！
+</p>
+
+</div>
