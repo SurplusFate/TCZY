@@ -57,21 +57,35 @@ function autoSidebar() {
       
       // 转换文件结构为侧边栏格式
       function convertToSidebar(items: any[], parentPath: string = ''): any[] {
-        return items.map(item => {
+        const sidebarItems: any[] = []
+        
+        // 检查当前目录是否有 index.md
+        const indexPath = path.join(notesPath, folderName, parentPath, 'index.md')
+        if (fs.existsSync(indexPath) && parentPath) {
+          const linkPath = `/notes/${folderName}/${parentPath}`
+          sidebarItems.push({
+            text: '概述',
+            link: linkPath
+          })
+        }
+        
+        for (const item of items) {
           const fullPath = parentPath ? `${parentPath}/${item.name}` : item.name
           if (item.isDir) {
-            return {
+            sidebarItems.push({
               text: item.name,
               collapsed: false,
               items: convertToSidebar(item.children, fullPath)
-            }
+            })
           } else {
-            return {
+            sidebarItems.push({
               text: item.name,
               link: `/notes/${folderName}/${fullPath}`
-            }
+            })
           }
-        })
+        }
+        
+        return sidebarItems
       }
       
       if (items.length > 0) {
