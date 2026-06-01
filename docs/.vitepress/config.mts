@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
 import fs from 'fs'
 import path from 'path'
 
@@ -153,7 +152,7 @@ function scanNotes() {
   return result
 }
 
-export default withMermaid(defineConfig({
+export default defineConfig({
   base: '/TCZY/',
   title: '首页',
   ignoreDeadLinks: true,    // ← 忽略死链接检查
@@ -227,8 +226,4 @@ export default withMermaid(defineConfig({
     math: true,
     html: true,
   },
-  
-  mermaid: {
-    // 参考 https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapiconfiguration
-  },
-}))
+})

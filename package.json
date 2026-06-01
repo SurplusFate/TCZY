@@ -8,9 +8,5 @@
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^1.6.3"
-  },
-  "dependencies": {
-    "khroma": "^2.1.0",
-    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }

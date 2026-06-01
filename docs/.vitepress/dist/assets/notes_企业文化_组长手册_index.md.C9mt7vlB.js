@@ -1,1 +1,0 @@
-import{c as e,Q as t,j as n}from"./chunks/framework.B8Zo1Qnt.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"notes/企业文化/组长手册/index.md","filePath":"notes/企业文化/组长手册/index.md"}'),a={name:"notes/企业文化/组长手册/index.md"};function o(s,r,c,d,i,p){return t(),n("div")}const f=e(a,[["render",o]]);export{m as __pageData,f as default};
