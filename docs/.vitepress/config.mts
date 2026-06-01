@@ -89,11 +89,23 @@ function autoSidebar() {
       }
       
       if (items.length > 0) {
-        result.push({
+        const sidebarEntry: any = {
           text: folderName,
           collapsed: false,
-          items: convertToSidebar(items)
-        })
+          items: []
+        }
+        
+        // 检查该分类目录下是否有 index.md
+        const folderIndexPath = path.join(folderPath, 'index.md')
+        if (fs.existsSync(folderIndexPath)) {
+          sidebarEntry.items.push({
+            text: '概述',
+            link: `/notes/${folderName}/`
+          })
+        }
+        
+        sidebarEntry.items.push(...convertToSidebar(items))
+        result.push(sidebarEntry)
       }
     }
   } catch (e) {
