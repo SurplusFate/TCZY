@@ -57,55 +57,29 @@ function autoSidebar() {
       
       // 转换文件结构为侧边栏格式
       function convertToSidebar(items: any[], parentPath: string = ''): any[] {
-        const sidebarItems: any[] = []
-        
-        // 检查当前目录是否有 index.md
-        const indexPath = path.join(notesPath, folderName, parentPath, 'index.md')
-        if (fs.existsSync(indexPath) && parentPath) {
-          const linkPath = `/notes/${folderName}/${parentPath}`
-          sidebarItems.push({
-            text: '概述',
-            link: linkPath
-          })
-        }
-        
-        for (const item of items) {
+        return items.map(item => {
           const fullPath = parentPath ? `${parentPath}/${item.name}` : item.name
           if (item.isDir) {
-            sidebarItems.push({
+            return {
               text: item.name,
               collapsed: false,
               items: convertToSidebar(item.children, fullPath)
-            })
+            }
           } else {
-            sidebarItems.push({
+            return {
               text: item.name,
               link: `/notes/${folderName}/${fullPath}`
-            })
+            }
           }
-        }
-        
-        return sidebarItems
+        })
       }
       
       if (items.length > 0) {
-        const sidebarEntry: any = {
+        result.push({
           text: folderName,
           collapsed: false,
-          items: []
-        }
-        
-        // 检查该分类目录下是否有 index.md
-        const folderIndexPath = path.join(folderPath, 'index.md')
-        if (fs.existsSync(folderIndexPath)) {
-          sidebarEntry.items.push({
-            text: '概述',
-            link: `/notes/${folderName}/`
-          })
-        }
-        
-        sidebarEntry.items.push(...convertToSidebar(items))
-        result.push(sidebarEntry)
+          items: convertToSidebar(items)
+        })
       }
     }
   } catch (e) {
