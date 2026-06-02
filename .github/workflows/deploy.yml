@@ -3,8 +3,6 @@ name: 部署到 GitHub Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - '**/images/.gitkeep'  # 忽略 images 文件夹的变更，防止循环
   workflow_dispatch:
 
 permissions:
@@ -14,48 +12,23 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  setup-folders:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: 检查并创建缺失的 images 文件夹
-        id: check_folders
-        run: |
-          need_commit=false
-          for dir in docs/notes/*/; do
-            if [ -d "$dir" ] && [ ! -d "$dir/images" ]; then
-              mkdir -p "$dir/images"
-              touch "$dir/images/.gitkeep"
-              echo "✅ 创建: $dir/images"
-              need_commit=true
-            fi
-          done
-          echo "need_commit=$need_commit" >> $GITHUB_OUTPUT
-      
-      - name: 提交变更
-        if: steps.check_folders.outputs.need_commit == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "auto: 自动创建 images 文件夹 [skip ci]"
-          git push
-
   build:
-    needs: setup-folders
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: 创建缺失的 images 文件夹
+        run: |
+          for dir in docs/notes/*/; do
+            if [ -d "$dir" ] && [ ! -d "$dir/images" ]; then
+              mkdir -p "$dir/images"
+            fi
+          done
       - run: npm install
       - run: npm run docs:build
       - uses: actions/upload-pages-artifact@v3
