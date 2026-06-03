@@ -24,6 +24,7 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
 /* ===== 卡片悬停效果 ===== */
 .VPFeatures .VPFeature {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -40,177 +41,314 @@ body {
 }
 
 /* ===== 首页动画 ===== */
-.VPHero .name {
-  animation: fadeInUp 0.8s ease;
-}
-
-.VPHero .text {
-  animation: fadeInUp 0.8s ease 0.1s both;
-}
-
-.VPHero .tagline {
-  animation: fadeInUp 0.8s ease 0.2s both;
-}
-
-.VPHero .actions {
-  animation: fadeInUp 0.8s ease 0.3s both;
-}
+.VPHero .name { animation: fadeInUp 0.8s ease; }
+.VPHero .text { animation: fadeInUp 0.8s ease 0.1s both; }
+.VPHero .tagline { animation: fadeInUp 0.8s ease 0.2s both; }
+.VPHero .actions { animation: fadeInUp 0.8s ease 0.3s both; }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 /* ===== 滚动条美化 ===== */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--vp-c-brand-2);
-  border-radius: 3px;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--vp-c-brand-2); border-radius: 3px; }
 
 /* ===== 图片圆角阴影 ===== */
-.VPContent img {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+.VPContent img { border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
 
 /* ===== 表格美化 ===== */
-.VPContent table {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.VPContent th {
-  background: var(--vp-c-brand-soft);
-}
+.VPContent table { border-radius: 8px; overflow: hidden; }
+.VPContent th { background: var(--vp-c-brand-soft); }
 
 /* ===== 代码块圆角 ===== */
-div[class*='language-'] {
+div[class*='language-'] { border-radius: 8px; }
+
+/* ================================================================
+   统一组件样式系统（tc- 前缀避免冲突）
+   ================================================================ */
+
+/* --- 1. 基础卡片 --- */
+.tc-card {
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.tc-card-blue { background: rgba(102,126,234,0.08); border: 1px solid rgba(102,126,234,0.15); }
+.tc-card-green { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); }
+.tc-card-orange { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+.tc-card-red { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); }
+.tc-card-sky { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.15); }
+.tc-card-pink { background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.15); }
+.tc-card-amber { background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.15); }
+
+/* --- 2. 大容器（16px圆角） --- */
+.tc-container {
+  padding: 25px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+.tc-container-blue { background: rgba(102,126,234,0.06); border: 1px solid rgba(102,126,234,0.15); }
+.tc-container-green { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); }
+.tc-container-orange { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.15); }
+.tc-container-red { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); }
+.tc-container-sky { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15); }
+
+/* --- 3. 渐变容器 --- */
+.tc-gradient {
+  padding: 25px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+.tc-gradient-blue-green { background: linear-gradient(135deg,rgba(102,126,234,0.1) 0%,rgba(34,197,94,0.1) 100%); border: 2px solid rgba(102,126,234,0.2); }
+.tc-gradient-blue-purple { background: linear-gradient(135deg,rgba(102,126,234,0.1) 0%,rgba(118,75,162,0.1) 100%); border: 2px solid rgba(102,126,234,0.2); }
+.tc-gradient-orange-deep { background: linear-gradient(135deg,rgba(245,158,11,0.1) 0%,rgba(217,119,6,0.1) 100%); border: 2px solid rgba(245,158,11,0.2); }
+.tc-gradient-red-orange { background: linear-gradient(135deg,rgba(239,68,68,0.08) 0%,rgba(245,158,11,0.08) 100%); border: 2px solid rgba(239,68,68,0.2); }
+.tc-gradient-red-deep { background: linear-gradient(135deg,rgba(239,68,68,0.1) 0%,rgba(220,38,38,0.1) 100%); border: 2px solid rgba(239,68,68,0.2); }
+.tc-gradient-green-deep { background: linear-gradient(135deg,rgba(34,197,94,0.1) 0%,rgba(22,163,74,0.1) 100%); border: 2px solid rgba(34,197,94,0.2); }
+
+/* --- 4. 深色实色渐变高亮（总结/金句） --- */
+.tc-highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px;
+  border-radius: 16px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+  color: #fff;
+}
+.tc-highlight p,
+.tc-highlight span,
+.tc-highlight strong {
+  color: #fff !important;
+}
+
+/* --- 5. 网格布局 --- */
+.tc-grid { display: grid; gap: 15px; margin: 20px 0; }
+.tc-grid-auto { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.tc-grid-sm { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.tc-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.tc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.tc-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* --- 6. Flex 布局 --- */
+.tc-flex { display: flex; gap: 12px; margin: 20px 0; }
+.tc-flex-wrap { flex-wrap: wrap; }
+.tc-flex-col { flex-direction: column; }
+.tc-flex-center { align-items: center; justify-content: center; }
+.tc-flex-between { justify-content: space-between; }
+
+/* --- 7. 引用块 --- */
+.tc-quote {
+  margin: 0;
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+}
+.tc-quote-blue { background: rgba(102,126,234,0.08); border-left: 4px solid #667eea; }
+.tc-quote-green { background: rgba(34,197,94,0.08); border-left: 4px solid #22c55e; }
+.tc-quote-orange { background: rgba(245,158,11,0.08); border-left: 4px solid #f59e0b; }
+.tc-quote-red { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444; }
+
+/* --- 8. 列表条目 --- */
+.tc-item {
+  padding: 8px 12px;
   border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.tc-item-blue { background: rgba(102,126,234,0.08); }
+.tc-item-green { background: rgba(34,197,94,0.08); }
+.tc-item-orange { background: rgba(245,158,11,0.08); }
+.tc-item-red { background: rgba(239,68,68,0.08); }
+.tc-item-sky { background: rgba(59,130,246,0.08); }
+.tc-item-pink { background: rgba(236,72,153,0.08); }
+
+/* --- 9. 白色子面板（用于渐变容器内部） --- */
+.tc-sub {
+  background: rgba(255,255,255,0.6);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* ===== 暗色模式卡片适配 ===== */
-.dark div[style*="background:rgba(102,126,234,0.06)"],
-.dark div[style*="background:rgba(102,126,234, 0.06)"],
-.dark div[style*="background:#f8f9fa"],
-.dark div[style*="background: #f8f9fa"],
-.dark div[style*="background:rgba(34,197,94,0.06)"],
-.dark div[style*="background:rgba(34,197,94, 0.06)"],
-.dark div[style*="background:rgba(239,68,68,0.06)"],
-.dark div[style*="background:rgba(239,68,68, 0.06)"],
-.dark div[style*="background:rgba(245,158,11,0.06)"],
-.dark div[style*="background:rgba(245,158,11, 0.06)"],
-.dark div[style*="background:rgba(59,130,246,0.06)"],
-.dark div[style*="background:rgba(59,130,246, 0.06)"],
-.dark div[style*="background:rgba(236,72,153,0.06)"],
-.dark div[style*="background:rgba(236,72,153, 0.06)"],
-.dark div[style*="background:#fff"],
-.dark div[style*="background: #fff"],
-.dark div[style*="background: #ffffff"],
-.dark div[style*="background:#ffffff"],
-.dark div[style*="background: rgb(255,255,255)"],
-.dark div[style*="background:rgb(255,255,255)"],
-.dark div[style*="background: rgba(255,255,255,1)"],
-.dark div[style*="background:rgba(255,255,255,1)"],
-.dark div[style*="background:rgba(255,255,255,0.8)"],
-.dark div[style*="background: rgba(255,255,255,0.8)"],
-.dark div[style*="background:rgba(255,255,255,0.9)"],
-.dark div[style*="background: rgba(255,255,255,0.9)"] {
-  background-color: rgba(50, 54, 68, 0.9) !important;
+/* --- 10. 药丸标签 --- */
+.tc-tag {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.tc-tag-blue { background: rgba(102,126,234,0.1); color: #667eea; }
+.tc-tag-green { background: rgba(34,197,94,0.1); color: #22c55e; }
+.tc-tag-orange { background: rgba(245,158,11,0.1); color: #f59e0b; }
+.tc-tag-red { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+/* --- 11. 图标居中卡片 --- */
+.tc-icon {
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+.tc-icon-blue { background: rgba(102,126,234,0.08); border: 1px solid rgba(102,126,234,0.15); }
+.tc-icon-green { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); }
+.tc-icon-orange { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+.tc-icon-red { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); }
+.tc-icon-sky { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.15); }
+.tc-icon-pink { background: rgba(236,72,153,0.08); border: 1px solid rgba(236,72,153,0.15); }
+
+.tc-icon .tc-icon-emoji { font-size: 28px; margin: 0 0 8px 0; }
+.tc-icon .tc-icon-title { font-size: 15px; font-weight: bold; margin: 0; }
+.tc-icon .tc-icon-desc { font-size: 13px; margin: 8px 0 0 0; line-height: 1.6; }
+
+/* --- 12. 警告/注意条 --- */
+.tc-alert {
+  padding: 18px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+.tc-alert-red { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); }
+
+/* --- 13. FAQ 折叠面板 --- */
+.tc-faq { border-radius: 12px; overflow: hidden; margin: 15px 0; }
+.tc-faq-blue { background: rgba(102,126,234,0.06); border: 1px solid rgba(102,126,234,0.15); }
+.tc-faq-green { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); }
+.tc-faq summary {
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tc-faq summary::-webkit-details-marker { display: none; }
+.tc-faq-blue summary { color: #667eea; }
+.tc-faq-green summary { color: #22c55e; }
+
+/* --- 14. 文字颜色 --- */
+.tc-blue { color: #667eea; }
+.tc-green { color: #22c55e; }
+.tc-orange { color: #f59e0b; }
+.tc-red { color: #ef4444; }
+.tc-sky { color: #3b82f6; }
+.tc-pink { color: #ec4899; }
+.tc-body { color: #333; }
+.tc-muted { color: #666; }
+.tc-sm { font-size: 13px; }
+.tc-xs { font-size: 12px; }
+.tc-bold { font-weight: bold; }
+.tc-center { text-align: center; }
+
+/* --- 15. 标题样式 --- */
+.tc-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+.tc-subtitle {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.dark div[style*="background:rgba(102,126,234,0.08)"],
-.dark div[style*="background:rgba(102,126,234, 0.08)"],
-.dark div[style*="background:rgba(34,197,94,0.08)"],
-.dark div[style*="background:rgba(34,197,94, 0.08)"],
-.dark div[style*="background:rgba(239,68,68,0.08)"],
-.dark div[style*="background:rgba(239,68,68, 0.08)"],
-.dark div[style*="background:rgba(245,158,11,0.08)"],
-.dark div[style*="background:rgba(245,158,11, 0.08)"],
-.dark div[style*="background:rgba(59,130,246,0.08)"],
-.dark div[style*="background:rgba(59,130,246, 0.08)"],
-.dark div[style*="background:rgba(236,72,153,0.08)"],
-.dark div[style*="background:rgba(236,72,153, 0.08)"] {
-  background-color: rgba(40, 42, 54, 0.8) !important;
+/* --- 16. 内联代码标签 --- */
+.tc-code {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.tc-code-blue { background: rgba(59,130,246,0.1); color: #3b82f6; }
+.tc-code-green { background: rgba(34,197,94,0.1); color: #22c55e; }
+.tc-code-red { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+/* ================================================================
+   暗色模式适配
+   ================================================================ */
+.dark .tc-card-blue,
+.dark .tc-card-green,
+.dark .tc-card-orange,
+.dark .tc-card-red,
+.dark .tc-card-sky,
+.dark .tc-card-pink,
+.dark .tc-card-amber {
+  background: rgba(40, 44, 58, 0.7);
+  border-color: rgba(100, 110, 140, 0.25);
 }
 
-.dark div[style*="color:#333"],
-.dark div[style*="color: #333"],
-.dark div[style*="color:#1a1a2e"],
-.dark div[style*="color: #1a1a2e"],
-.dark div[style*="color:#555"],
-.dark div[style*="color: #555"],
-.dark div[style*="color:#666"],
-.dark div[style*="color: #666"] {
-  color: #c9d1d9 !important;
+.dark .tc-container-blue,
+.dark .tc-container-green,
+.dark .tc-container-orange,
+.dark .tc-container-red,
+.dark .tc-container-sky {
+  background: rgba(45, 48, 62, 0.8);
+  border-color: rgba(100, 110, 140, 0.25);
 }
 
-.dark p[style*="color:#333"],
-.dark p[style*="color: #333"],
-.dark p[style*="color:#555"],
-.dark p[style*="color: #555"],
-.dark p[style*="color:#666"],
-.dark p[style*="color: #666"],
-.dark span[style*="color:#333"],
-.dark span[style*="color: #333"],
-.dark span[style*="color:#555"],
-.dark span[style*="color: #555"],
-.dark span[style*="color:#666"],
-.dark span[style*="color: #666"],
-.dark div span[style*="color:#333"],
-.dark div span[style*="color: #333"],
-.dark div span[style*="color:#555"],
-.dark div span[style*="color: #555"],
-.dark div span[style*="color:#666"],
-.dark div span[style*="color: #666"] {
-  color: #c9d1d9 !important;
+.dark .tc-gradient {
+  background: rgba(35, 38, 50, 0.75);
+  border-color: rgba(100, 110, 140, 0.3);
 }
 
-/* 强制覆盖所有内联样式文字颜色 */
-.dark [style*="color:#333"],
-.dark [style*="color: #333"],
-.dark [style*="color:#555"],
-.dark [style*="color: #555"],
-.dark [style*="color:#666"],
-.dark [style*="color: #666"] {
-  color: #c9d1d9 !important;
+.dark .tc-sub {
+  background: rgba(55, 58, 72, 0.7);
 }
 
-.dark div[style*="border:1px solid rgba(102,126,234,0.15)"],
-.dark div[style*="border: 1px solid rgba(102,126,234,0.15)"],
-.dark div[style*="border:1px solid rgba(34,197,94,0.15)"],
-.dark div[style*="border: 1px solid rgba(34,197,94,0.15)"],
-.dark div[style*="border:1px solid rgba(239,68,68,0.15)"],
-.dark div[style*="border: 1px solid rgba(239,68,68,0.15)"],
-.dark div[style*="border:1px solid rgba(245,158,11,0.15)"],
-.dark div[style*="border: 1px solid rgba(245,158,11,0.15)"],
-.dark div[style*="border:1px solid rgba(59,130,246,0.15)"],
-.dark div[style*="border: 1px solid rgba(59,130,246,0.15)"],
-.dark div[style*="border:1px solid rgba(236,72,153,0.15)"],
-.dark div[style*="border: 1px solid rgba(236,72,153,0.15)"],
-.dark div[style*="border:1px solid rgba(102,126,234,0.1)"],
-.dark div[style*="border: 1px solid rgba(102,126,234,0.1)"] {
-  border-color: rgba(100, 110, 140, 0.3) !important;
+.dark .tc-item-blue,
+.dark .tc-item-green,
+.dark .tc-item-orange,
+.dark .tc-item-red,
+.dark .tc-item-sky,
+.dark .tc-item-pink {
+  background: rgba(45, 48, 62, 0.6);
 }
 
-.dark img {
-  border-radius: 8px;
-  opacity: 0.9;
+.dark .tc-icon-blue,
+.dark .tc-icon-green,
+.dark .tc-icon-orange,
+.dark .tc-icon-red,
+.dark .tc-icon-sky,
+.dark .tc-icon-pink {
+  background: rgba(40, 44, 58, 0.7);
+  border-color: rgba(100, 110, 140, 0.25);
 }
 
-.dark img:hover {
-  opacity: 1;
+.dark .tc-body { color: #c9d1d9; }
+.dark .tc-muted { color: #8b949e; }
+
+.dark .tc-quote-blue,
+.dark .tc-quote-green,
+.dark .tc-quote-orange,
+.dark .tc-quote-red {
+  background: rgba(40, 44, 58, 0.5);
 }
+
+.dark .tc-alert-red {
+  background: rgba(50, 40, 40, 0.7);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.dark .tc-faq-blue,
+.dark .tc-faq-green {
+  background: rgba(40, 44, 58, 0.7);
+  border-color: rgba(100, 110, 140, 0.25);
+}
+
+.dark .tc-tag-blue { background: rgba(102,126,234,0.2); }
+.dark .tc-tag-green { background: rgba(34,197,94,0.2); }
+.dark .tc-tag-orange { background: rgba(245,158,11,0.2); }
+.dark .tc-tag-red { background: rgba(239,68,68,0.2); }
+
+.dark .tc-code-blue { background: rgba(59,130,246,0.2); }
+.dark .tc-code-green { background: rgba(34,197,94,0.2); }
+.dark .tc-code-red { background: rgba(239,68,68,0.2); }
+
+.dark img { border-radius: 8px; opacity: 0.9; }
+.dark img:hover { opacity: 1; }
