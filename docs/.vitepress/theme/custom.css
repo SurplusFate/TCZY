@@ -297,9 +297,9 @@ div[class*='language-'] { border-radius: 8px; }
   border-color: rgba(100, 110, 140, 0.3);
 }
 
-.dark .tc-sub {
-  background: rgba(30, 33, 45, 0.9);
-  color: #c9d1d9;
+html.dark .tc-sub {
+  background: rgba(30, 33, 45, 0.95) !important;
+  color: #c9d1d9 !important;
 }
 
 .dark .tc-item-blue,
