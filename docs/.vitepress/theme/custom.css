@@ -298,7 +298,8 @@ div[class*='language-'] { border-radius: 8px; }
 }
 
 .dark .tc-sub {
-  background: rgba(55, 58, 72, 0.7);
+  background: rgba(30, 33, 45, 0.9);
+  color: #c9d1d9;
 }
 
 .dark .tc-item-blue,
