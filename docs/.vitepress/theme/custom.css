@@ -354,4 +354,19 @@ html.dark .tc-sub {
 .dark img { border-radius: 8px; opacity: 0.9; }
 .dark img:hover { opacity: 1; }
 
+/* ================================================================
+   横屏适配：隐藏右侧目录面板，保留左侧边栏
+   ================================================================ */
+@media (pointer: coarse) and (orientation: landscape) {
+  .VPDoc .aside {
+    display: none !important;
+  }
+  .VPDoc.has-aside > .container > .content-container > main + .aside {
+    display: none !important;
+  }
+  .VPDoc .layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 
