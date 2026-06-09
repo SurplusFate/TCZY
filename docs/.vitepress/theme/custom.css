@@ -358,11 +358,21 @@ html.dark .tc-sub {
    横屏 / 窄屏适配
    ================================================================ */
 
-/* 横屏且宽度有限时（如手机横屏 768px-1024px），缩小 aside 宽度 */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .VPSidebar,
+/* 横屏且宽度有限时（如手机横屏），隐藏侧边栏和目录面板 */
+@media (min-width: 768px) and (max-width: 1280px) {
   .VPSidebar {
     display: none !important;
+  }
+  .VPDoc .aside,
+  .VPDoc .aside-curtain,
+  .VPDoc .aside-container {
+    display: none !important;
+  }
+  .VPDoc.has-aside {
+    --vp-layout-top-offset: 0px;
+  }
+  .VPDoc .layout {
+    grid-template-columns: 1fr !important;
   }
   .VPContent .content-container {
     max-width: 100% !important;
@@ -371,17 +381,13 @@ html.dark .tc-sub {
     max-width: 100% !important;
     padding: 0 16px !important;
   }
-  .VPDoc .aside {
-    display: none !important;
-  }
-  .VPDoc .layout {
-    grid-template-columns: 1fr !important;
-  }
 }
 
-/* 更窄的横屏 */
+/* 更窄的屏幕 */
 @media (max-width: 767px) {
-  .VPDoc .aside {
+  .VPDoc .aside,
+  .VPDoc .aside-curtain,
+  .VPDoc .aside-container {
     display: none !important;
   }
 }
