@@ -368,8 +368,10 @@ html.dark .tc-sub {
 
 /* ================================================================
    横屏适配：隐藏右侧目录面板，扩大内容区域宽度
+   使用 orientation:landscape + max-height 区分手机横屏与桌面显示器
+   手机横屏高度通常 < 700px，桌面显示器高度远大于此
    ================================================================ */
-@media (pointer: coarse) and (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 700px) {
   .VPDoc .aside {
     display: none !important;
   }
