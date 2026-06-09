@@ -358,8 +358,8 @@ html.dark .tc-sub {
    横屏 / 窄屏适配
    ================================================================ */
 
-/* 手机横屏：矮视口 + 横向（高度 <= 500px 且宽度 > 高度） */
-@media (orientation: landscape) and (max-height: 500px) {
+/* 触屏设备横屏时，隐藏侧边栏和目录面板，让内容占满 */
+@media (pointer: coarse) and (orientation: landscape) {
   .VPSidebar {
     display: none !important;
   }
