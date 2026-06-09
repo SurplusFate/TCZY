@@ -367,9 +367,18 @@ html.dark .tc-sub {
 .dark img:hover { opacity: 1; }
 
 /* ================================================================
-   横屏适配：隐藏右侧目录面板，扩大内容区域宽度
+   横屏适配：隐藏左右侧栏，扩大内容区域宽度
    由 JS 在 html 元素上添加 tc-landscape class 触发
    ================================================================ */
+/* 隐藏左侧导航栏 */
+.tc-landscape .VPSidebar {
+  display: none !important;
+}
+/* 移除左侧导航栏占位（272px padding-left） */
+.tc-landscape .VPContent.has-sidebar {
+  padding-left: 0 !important;
+}
+/* 隐藏右侧目录面板 */
 .tc-landscape .VPDoc .aside {
   display: none !important;
 }
