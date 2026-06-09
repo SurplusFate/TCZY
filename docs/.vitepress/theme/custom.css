@@ -353,3 +353,35 @@ html.dark .tc-sub {
 
 .dark img { border-radius: 8px; opacity: 0.9; }
 .dark img:hover { opacity: 1; }
+
+/* ================================================================
+   横屏 / 窄屏适配
+   ================================================================ */
+
+/* 横屏且宽度有限时（如手机横屏 768px-1024px），缩小 aside 宽度 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .VPSidebar,
+  .VPSidebar {
+    display: none !important;
+  }
+  .VPContent .content-container {
+    max-width: 100% !important;
+  }
+  .VPContent .content {
+    max-width: 100% !important;
+    padding: 0 16px !important;
+  }
+  .VPDoc .aside {
+    display: none !important;
+  }
+  .VPDoc .layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 更窄的横屏 */
+@media (max-width: 767px) {
+  .VPDoc .aside {
+    display: none !important;
+  }
+}
