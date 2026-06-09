@@ -133,6 +133,18 @@ div[class*='language-'] { border-radius: 8px; }
 .tc-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .tc-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
+/* 网格响应式：窄屏时自动减少列数 */
+@media (max-width: 768px) {
+  .tc-grid-2, .tc-grid-3, .tc-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tc-grid-3, .tc-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* --- 6. Flex 布局 --- */
 .tc-flex { display: flex; gap: 12px; margin: 20px 0; }
 .tc-flex-wrap { flex-wrap: wrap; }
