@@ -135,7 +135,7 @@ div[class*='language-'] { border-radius: 8px; }
 
 /* 网格响应式：窄屏时自动减少列数 */
 @media (max-width: 768px) {
-  .tc-grid-2, .tc-grid-3, .tc-grid-4 {
+  .tc-grid, .tc-grid-auto, .tc-grid-sm, .tc-grid-2, .tc-grid-3, .tc-grid-4 {
     grid-template-columns: 1fr;
   }
 }
