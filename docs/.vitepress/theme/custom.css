@@ -367,7 +367,7 @@ html.dark .tc-sub {
 .dark img:hover { opacity: 1; }
 
 /* ================================================================
-   横屏适配：隐藏右侧目录面板，保留左侧边栏
+   横屏适配：隐藏右侧目录面板，扩大内容区域宽度
    ================================================================ */
 @media (pointer: coarse) and (orientation: landscape) {
   .VPDoc .aside {
@@ -378,6 +378,20 @@ html.dark .tc-sub {
   }
   .VPDoc .layout {
     grid-template-columns: 1fr !important;
+  }
+  /* 扩大内容区域宽度，减少左右空白 */
+  .VPDoc .container {
+    max-width: 100% !important;
+  }
+  .VPDoc .content-container {
+    max-width: 100% !important;
+  }
+  .VPDoc .content {
+    max-width: 100% !important;
+    padding: 0 24px !important;
+  }
+  .VPDoc .main {
+    max-width: 100% !important;
   }
 }
 
