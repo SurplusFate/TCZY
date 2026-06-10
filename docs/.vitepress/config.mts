@@ -166,14 +166,13 @@ export default defineConfig({
 (function(){
   function check(){
     var w=window.innerWidth,h=window.innerHeight;
-    // 横屏且高度较小（手机横屏/电脑模式）
+    // 横屏且高度较小
     if(w>h&&h<900){
       var ua=navigator.userAgent.toLowerCase();
-      // 检测是否为移动设备（排除真实桌面电脑）
-      var isMobile=/android|iphone|ipad|ipod|mobile/.test(ua);
-      // 检测是否启用了电脑模式（桌面UA但其实是手机）
-      var isDesktopUA=!/mobile/.test(ua)&&isMobile;
-      if(isMobile){
+      // 电脑模式：UA包含Android但不包含Mobile
+      // 手机模式：UA同时包含Android和Mobile
+      var isDesktopMode=/android/.test(ua)&&!/mobile/.test(ua);
+      if(isDesktopMode){
         var tip=document.getElementById('tc-desktop-tip');
         if(!tip){
           tip=document.createElement('div');
