@@ -417,5 +417,24 @@ html.dark .tc-sub {
 .tc-landscape .tc-grid {
   grid-template-columns: 1fr !important;
 }
+/* 横屏时强制正文内容、引用块、卡片等满宽显示 */
+.tc-landscape .vp-doc p,
+.tc-landscape .vp-doc blockquote,
+.tc-landscape .vp-doc ul,
+.tc-landscape .vp-doc ol,
+.tc-landscape .vp-doc h1,
+.tc-landscape .vp-doc h2,
+.tc-landscape .vp-doc h3,
+.tc-landscape .vp-doc h4,
+.tc-landscape .vp-doc .custom-block,
+.tc-landscape .vp-doc .vp-table {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* 横屏时确保引用块不会溢出 */
+.tc-landscape .vp-doc blockquote {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
 
 

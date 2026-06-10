@@ -161,18 +161,14 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    // 横屏适配：在页面渲染前修改 viewport，强制触发移动布局
+    // 横屏适配：检测横屏并添加 tc-landscape class
     ['script', {}, `
 (function(){
   function fix(){
-    var m=document.querySelector('meta[name="viewport"]');
-    if(!m)return;
     if(window.innerWidth>window.innerHeight&&window.innerHeight<700){
       document.documentElement.classList.add('tc-landscape');
-      m.setAttribute('content','width=768,initial-scale='+(window.innerWidth/768));
     }else{
       document.documentElement.classList.remove('tc-landscape');
-      m.setAttribute('content','width=device-width,initial-scale=1');
     }
   }
   fix();
