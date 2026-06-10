@@ -370,6 +370,15 @@ html.dark .tc-sub {
    横屏适配：隐藏右侧目录面板，扩大内容区域宽度
    由 JS 在 html 元素上添加 tc-landscape class 触发
    ================================================================ */
+/* 横屏时让侧边栏变成可切换的浮层（类似手机模式），避免遮挡内容 */
+.tc-landscape .VPSidebar {
+  transform: translateX(-100%) !important;
+  transition: transform 0.25s ease !important;
+}
+/* 侧边栏打开时的状态 */
+.tc-landscape .VPSidebar.open {
+  transform: translateX(0) !important;
+}
 /* 移除左侧导航栏占位（272px padding-left），让内容区满宽 */
 .tc-landscape .VPContent.has-sidebar {
   padding-left: 0 !important;
