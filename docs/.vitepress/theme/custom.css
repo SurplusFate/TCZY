@@ -367,59 +367,59 @@ html.dark .tc-sub {
 .dark img:hover { opacity: 1; }
 
 /* ================================================================
-   横屏适配：自动缩放到 110%，隐藏右侧目录面板
-   由 JS 在 html 元素上添加 tc-landscape class 触发
+   横屏适配：纯 CSS 媒体查询，不依赖 JS
+   匹配：宽度 > 高度（横屏）且高度较小（手机横屏/电脑模式）
    ================================================================ */
-/* 横屏时整个页面自动缩放到 110% */
-.tc-landscape {
-  zoom: 1.1;
-}
-/* 横屏时让侧边栏变成可切换的浮层（类似手机模式），避免遮挡内容 */
-.tc-landscape .VPSidebar {
-  transform: translateX(-100%) !important;
-  transition: transform 0.25s ease !important;
-}
-/* 侧边栏打开时的状态 */
-.tc-landscape .VPSidebar.open {
-  transform: translateX(0) !important;
-}
-/* 移除左侧导航栏占位（272px padding-left），让内容区满宽 */
-.tc-landscape .VPContent.has-sidebar {
-  padding-left: 0 !important;
-}
-/* 隐藏右侧目录面板 */
-.tc-landscape .VPDoc .aside {
-  display: none !important;
-}
-.tc-landscape .VPDoc.has-aside > .container > .content-container > main + .aside {
-  display: none !important;
-}
-.tc-landscape .VPDoc .layout {
-  grid-template-columns: 1fr !important;
-}
-/* 扩大内容区域宽度，减少左右空白 */
-.tc-landscape .VPDoc .container {
-  max-width: 100% !important;
-}
-/* 使用更高特异性的选择器覆盖 VitePress 的 scoped CSS */
-.tc-landscape .VPDoc.has-aside .content-container,
-.tc-landscape .VPDoc .content-container {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-.tc-landscape .VPDoc .content {
-  max-width: 100% !important;
-  padding: 0 24px !important;
-}
-.tc-landscape .VPDoc .main {
-  max-width: 100% !important;
-}
-/* 横屏时强制所有网格布局变单列（覆盖 VitePress 的 @media 断点） */
-.tc-landscape .note-list {
-  grid-template-columns: 1fr !important;
-}
-.tc-landscape .tc-grid {
-  grid-template-columns: 1fr !important;
+@media screen and (orientation: landscape) and (max-height: 800px) {
+  /* 整个页面自动缩放到 110% */
+  html {
+    zoom: 1.1;
+  }
+  /* 让侧边栏变成可切换的浮层，避免遮挡内容 */
+  .VPSidebar {
+    transform: translateX(-100%) !important;
+    transition: transform 0.25s ease !important;
+  }
+  .VPSidebar.open {
+    transform: translateX(0) !important;
+  }
+  /* 移除左侧导航栏占位 */
+  .VPContent.has-sidebar {
+    padding-left: 0 !important;
+  }
+  /* 隐藏右侧目录面板 */
+  .VPDoc .aside {
+    display: none !important;
+  }
+  .VPDoc.has-aside > .container > .content-container > main + .aside {
+    display: none !important;
+  }
+  .VPDoc .layout {
+    grid-template-columns: 1fr !important;
+  }
+  /* 扩大内容区域宽度 */
+  .VPDoc .container {
+    max-width: 100% !important;
+  }
+  .VPDoc.has-aside .content-container,
+  .VPDoc .content-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .VPDoc .content {
+    max-width: 100% !important;
+    padding: 0 24px !important;
+  }
+  .VPDoc .main {
+    max-width: 100% !important;
+  }
+  /* 网格布局变单列 */
+  .note-list {
+    grid-template-columns: 1fr !important;
+  }
+  .tc-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 
