@@ -161,40 +161,24 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    // 强制刷新缓存
-    ['meta', { 'http-equiv': 'Cache-Control', content: 'no-cache, no-store, must-revalidate' }],
-    ['meta', { 'http-equiv': 'Pragma', content: 'no-cache' }],
-    ['meta', { 'http-equiv': 'Expires', content: '0' }],
-    // 横屏适配：电脑模式下横屏自动放大 110%
+    // 横屏适配：电脑模式下修改viewport实现自动缩放
     ['script', {}, `
 (function(){
   function fix(){
     var w=window.innerWidth,h=window.innerHeight;
-    var isLandscape=w>h&&h<900;
-    // 在页面右下角显示调试信息
-    var dbg=document.getElementById('tc-debug');
-    if(!dbg){
-      dbg=document.createElement('div');
-      dbg.id='tc-debug';
-      dbg.style.cssText='position:fixed;bottom:4px;right:4px;z-index:99999;background:rgba(0,0,0,0.7);color:#0f0;font-size:11px;padding:4px 8px;border-radius:4px;font-family:monospace;pointer-events:none;';
-      document.body.appendChild(dbg);
-    }
-    dbg.textContent='w='+w+' h='+h+' L='+(isLandscape?'Y':'N')+' T='+(new Date().toLocaleTimeString());
-    if(isLandscape){
-      document.body.style.transform='scale(1.1)';
-      document.body.style.transformOrigin='top left';
-      document.body.style.width=(100/1.1)+'%';
+    var m=document.querySelector('meta[name="viewport"]');
+    if(!m) return;
+    if(w>h&&h<900){
+      // 横屏：让浏览器自动缩放到110%左右的效果
+      var scale=Math.round((w/980)*100)/100;
+      if(scale>1.5) scale=1.5;
+      if(scale<1) scale=1;
+      m.setAttribute('content','width=980, initial-scale='+scale);
     }else{
-      document.body.style.transform='';
-      document.body.style.transformOrigin='';
-      document.body.style.width='';
+      m.setAttribute('content','width=device-width, initial-scale=1');
     }
   }
-  function init(){
-    if(document.body) fix();
-    else setTimeout(init,50);
-  }
-  init();
+  fix();
   window.addEventListener('resize',fix);
   window.addEventListener('orientationchange',fix);
 })();`],
