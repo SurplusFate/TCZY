@@ -180,7 +180,11 @@ export default defineConfig({
       document.body.style.width='';
     }
   }
-  fix();
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',fix);
+  }else{
+    fix();
+  }
   window.addEventListener('resize',fix);
   window.addEventListener('orientationchange',fix);
 })();`],
