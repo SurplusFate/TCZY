@@ -166,21 +166,30 @@ export default defineConfig({
 (function(){
   function check(){
     var w=window.innerWidth,h=window.innerHeight;
-    // 横屏且高度较小
-    if(w>h&&h<900){
-      var ua=navigator.userAgent.toLowerCase();
-      // 电脑模式：UA包含Android但不包含Mobile
-      // 手机模式：UA同时包含Android和Mobile
-      var isDesktopMode=/android/.test(ua)&&!/mobile/.test(ua);
-      if(isDesktopMode){
-        var tip=document.getElementById('tc-desktop-tip');
-        if(!tip){
-          tip=document.createElement('div');
-          tip.id='tc-desktop-tip';
-          tip.innerHTML='💡 当前为电脑模式，横屏显示可能异常。建议切换为<b>手机模式</b>获得最佳体验。';
-          tip.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#fff3cd;color:#856404;padding:8px 16px;font-size:13px;text-align:center;border-bottom:1px solid #ffeaa7;line-height:1.5;';
-          document.body.appendChild(tip);
-        }
+    var ua=navigator.userAgent;
+    var uaLower=ua.toLowerCase();
+    var hasAndroid=/android/.test(uaLower);
+    var hasMobile=/mobile/.test(uaLower);
+    var isDesktopMode=hasAndroid&&!hasMobile;
+    var isLandscape=w>h&&h<900;
+    // 调试浮窗
+    var dbg=document.getElementById('tc-ua-debug');
+    if(!dbg){
+      dbg=document.createElement('div');
+      dbg.id='tc-ua-debug';
+      dbg.style.cssText='position:fixed;bottom:4px;right:4px;z-index:99999;background:rgba(0,0,0,0.8);color:#0f0;font-size:10px;padding:4px 8px;border-radius:4px;font-family:monospace;max-width:90vw;word-break:break-all;pointer-events:none;';
+      document.body.appendChild(dbg);
+    }
+    dbg.textContent='w='+w+' h='+h+' L='+(isLandscape?'Y':'N')+' A='+hasAndroid+' M='+hasMobile+' DM='+isDesktopMode;
+    // 提示条
+    if(isLandscape&&isDesktopMode){
+      var tip=document.getElementById('tc-desktop-tip');
+      if(!tip){
+        tip=document.createElement('div');
+        tip.id='tc-desktop-tip';
+        tip.innerHTML='💡 当前为电脑模式，横屏显示可能异常。建议切换为<b>手机模式</b>获得最佳体验。';
+        tip.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#fff3cd;color:#856404;padding:8px 16px;font-size:13px;text-align:center;border-bottom:1px solid #ffeaa7;line-height:1.5;';
+        document.body.appendChild(tip);
       }
     }else{
       var tip=document.getElementById('tc-desktop-tip');
