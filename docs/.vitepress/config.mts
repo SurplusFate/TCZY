@@ -170,7 +170,17 @@ export default defineConfig({
 (function(){
   function fix(){
     var w=window.innerWidth,h=window.innerHeight;
-    if(w>h&&h<900){
+    var isLandscape=w>h&&h<900;
+    // 在页面右下角显示调试信息
+    var dbg=document.getElementById('tc-debug');
+    if(!dbg){
+      dbg=document.createElement('div');
+      dbg.id='tc-debug';
+      dbg.style.cssText='position:fixed;bottom:4px;right:4px;z-index:99999;background:rgba(0,0,0,0.7);color:#0f0;font-size:11px;padding:4px 8px;border-radius:4px;font-family:monospace;pointer-events:none;';
+      document.body.appendChild(dbg);
+    }
+    dbg.textContent='w='+w+' h='+h+' L='+(isLandscape?'Y':'N')+' T='+(new Date().toLocaleTimeString());
+    if(isLandscape){
       document.body.style.transform='scale(1.1)';
       document.body.style.transformOrigin='top left';
       document.body.style.width=(100/1.1)+'%';
@@ -180,11 +190,11 @@ export default defineConfig({
       document.body.style.width='';
     }
   }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',fix);
-  }else{
-    fix();
+  function init(){
+    if(document.body) fix();
+    else setTimeout(init,50);
   }
+  init();
   window.addEventListener('resize',fix);
   window.addEventListener('orientationchange',fix);
 })();`],
