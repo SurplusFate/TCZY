@@ -161,26 +161,40 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    // 横屏适配：电脑模式下修改viewport实现自动缩放
+    // 横屏提示：电脑模式下横屏时提示用户切换回手机模式
     ['script', {}, `
 (function(){
-  function fix(){
+  function check(){
     var w=window.innerWidth,h=window.innerHeight;
-    var m=document.querySelector('meta[name="viewport"]');
-    if(!m) return;
+    // 横屏且高度较小（手机横屏/电脑模式）
     if(w>h&&h<900){
-      // 横屏：让浏览器自动缩放到110%左右的效果
-      var scale=Math.round((w/980)*100)/100;
-      if(scale>1.5) scale=1.5;
-      if(scale<1) scale=1;
-      m.setAttribute('content','width=980, initial-scale='+scale);
+      var ua=navigator.userAgent.toLowerCase();
+      // 检测是否为移动设备（排除真实桌面电脑）
+      var isMobile=/android|iphone|ipad|ipod|mobile/.test(ua);
+      // 检测是否启用了电脑模式（桌面UA但其实是手机）
+      var isDesktopUA=!/mobile/.test(ua)&&isMobile;
+      if(isMobile){
+        var tip=document.getElementById('tc-desktop-tip');
+        if(!tip){
+          tip=document.createElement('div');
+          tip.id='tc-desktop-tip';
+          tip.innerHTML='💡 当前为电脑模式，横屏显示可能异常。建议切换为<b>手机模式</b>获得最佳体验。';
+          tip.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#fff3cd;color:#856404;padding:8px 16px;font-size:13px;text-align:center;border-bottom:1px solid #ffeaa7;line-height:1.5;';
+          document.body.appendChild(tip);
+        }
+      }
     }else{
-      m.setAttribute('content','width=device-width, initial-scale=1');
+      var tip=document.getElementById('tc-desktop-tip');
+      if(tip) tip.remove();
     }
   }
-  fix();
-  window.addEventListener('resize',fix);
-  window.addEventListener('orientationchange',fix);
+  function init(){
+    if(document.body) check();
+    else setTimeout(init,100);
+  }
+  init();
+  window.addEventListener('resize',check);
+  window.addEventListener('orientationchange',check);
 })();`],
   ],
   
