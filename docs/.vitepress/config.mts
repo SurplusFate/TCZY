@@ -165,14 +165,16 @@ export default defineConfig({
     ['meta', { 'http-equiv': 'Cache-Control', content: 'no-cache, no-store, must-revalidate' }],
     ['meta', { 'http-equiv': 'Pragma', content: 'no-cache' }],
     ['meta', { 'http-equiv': 'Expires', content: '0' }],
-    // 横屏适配：检测横屏并添加 tc-landscape class
+    // 横屏适配：电脑模式下横屏自动 zoom 1.1
     ['script', {}, `
 (function(){
   function fix(){
-    if(window.innerWidth>window.innerHeight&&window.innerHeight<700){
-      document.documentElement.classList.add('tc-landscape');
+    var w=window.innerWidth,h=window.innerHeight;
+    // 横屏且高度较小（手机横屏/电脑模式）
+    if(w>h&&h<900){
+      document.documentElement.style.zoom='1.1';
     }else{
-      document.documentElement.classList.remove('tc-landscape');
+      document.documentElement.style.zoom='';
     }
   }
   fix();
