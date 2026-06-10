@@ -397,8 +397,11 @@ html.dark .tc-sub {
 .tc-landscape .VPDoc .container {
   max-width: 100% !important;
 }
+/* 使用更高特异性的选择器覆盖 VitePress 的 scoped CSS */
+.tc-landscape .VPDoc.has-aside .content-container,
 .tc-landscape .VPDoc .content-container {
   max-width: 100% !important;
+  width: 100% !important;
 }
 .tc-landscape .VPDoc .content {
   max-width: 100% !important;
