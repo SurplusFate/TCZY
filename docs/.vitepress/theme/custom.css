@@ -108,6 +108,11 @@ div[class*='language-'] { border-radius: 8px; }
 .tc-gradient-red-orange { background: linear-gradient(135deg,rgba(239,68,68,0.08) 0%,rgba(245,158,11,0.08) 100%); border: 2px solid rgba(239,68,68,0.2); }
 .tc-gradient-red-deep { background: linear-gradient(135deg,rgba(239,68,68,0.1) 0%,rgba(220,38,38,0.1) 100%); border: 2px solid rgba(239,68,68,0.2); }
 .tc-gradient-green-deep { background: linear-gradient(135deg,rgba(34,197,94,0.1) 0%,rgba(22,163,74,0.1) 100%); border: 2px solid rgba(34,197,94,0.2); }
+/* 单色渐变（用于简单分类卡片） */
+.tc-gradient-red { background: linear-gradient(135deg,rgba(239,68,68,0.08) 0%,rgba(239,68,68,0.04) 100%); border: 2px solid rgba(239,68,68,0.2); }
+.tc-gradient-green { background: linear-gradient(135deg,rgba(34,197,94,0.08) 0%,rgba(34,197,94,0.04) 100%); border: 2px solid rgba(34,197,94,0.2); }
+.tc-gradient-blue { background: linear-gradient(135deg,rgba(102,126,234,0.08) 0%,rgba(102,126,234,0.04) 100%); border: 2px solid rgba(102,126,234,0.2); }
+.tc-gradient-orange { background: linear-gradient(135deg,rgba(245,158,11,0.08) 0%,rgba(245,158,11,0.04) 100%); border: 2px solid rgba(245,158,11,0.2); }
 
 /* --- 4. 深色实色渐变高亮（总结/金句） --- */
 .tc-highlight {
