@@ -168,18 +168,7 @@ export default defineConfig({
     var w=window.innerWidth,h=window.innerHeight;
     var isLandscape=w>h&&h<900;
     // 电脑模式判断：横屏时宽度很大（>=960）说明是电脑模式模拟的桌面视口
-    // 手机模式横屏时宽度通常较小（<960）
     var isDesktopMode=isLandscape&&w>=960;
-    // 调试浮窗
-    var dbg=document.getElementById('tc-ua-debug');
-    if(!dbg){
-      dbg=document.createElement('div');
-      dbg.id='tc-ua-debug';
-      dbg.style.cssText='position:fixed;bottom:4px;right:4px;z-index:99999;background:rgba(0,0,0,0.8);color:#0f0;font-size:10px;padding:4px 8px;border-radius:4px;font-family:monospace;max-width:90vw;word-break:break-all;pointer-events:none;';
-      document.body.appendChild(dbg);
-    }
-    dbg.textContent='w='+w+' h='+h+' L='+(isLandscape?'Y':'N')+' DM='+(isDesktopMode?'Y':'N');
-    // 提示条
     if(isDesktopMode){
       var tip=document.getElementById('tc-desktop-tip');
       if(!tip){
