@@ -367,10 +367,12 @@ html.dark .tc-sub {
 .dark img:hover { opacity: 1; }
 
 /* ================================================================
-   横屏适配：纯 CSS 媒体查询，不依赖 JS
-   匹配：宽度 > 高度（横屏）且高度较小（手机横屏/电脑模式）
+   横屏适配：纯 CSS 媒体查询
+   方案1：横屏且高度较小（手机横屏）
+   方案2：宽度很大但高度不大（电脑模式横屏）
    ================================================================ */
-@media screen and (orientation: landscape) and (max-height: 800px) {
+@media screen and (orientation: landscape) and (max-height: 800px),
+       screen and (min-width: 1024px) and (max-height: 900px) {
   /* 整个页面自动缩放到 110% */
   html {
     zoom: 1.1;
