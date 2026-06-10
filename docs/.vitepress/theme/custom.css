@@ -410,5 +410,12 @@ html.dark .tc-sub {
 .tc-landscape .VPDoc .main {
   max-width: 100% !important;
 }
+/* 横屏时强制所有网格布局变单列（覆盖 VitePress 的 @media 断点） */
+.tc-landscape .note-list {
+  grid-template-columns: 1fr !important;
+}
+.tc-landscape .tc-grid {
+  grid-template-columns: 1fr !important;
+}
 
 
