@@ -161,6 +161,10 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
+    // 强制刷新缓存
+    ['meta', { 'http-equiv': 'Cache-Control', content: 'no-cache, no-store, must-revalidate' }],
+    ['meta', { 'http-equiv': 'Pragma', content: 'no-cache' }],
+    ['meta', { 'http-equiv': 'Expires', content: '0' }],
     // 横屏适配：检测横屏并添加 tc-landscape class
     ['script', {}, `
 (function(){
