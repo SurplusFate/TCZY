@@ -27,18 +27,9 @@ export default {
       } catch (e) {}
     }
 
-    function updateLandscapeClass() {
-      const isLandscape = window.innerWidth > window.innerHeight && window.innerHeight < 700
-      document.documentElement.classList.toggle('tc-landscape', isLandscape)
-    }
-
     onMounted(() => {
       fetchHitokoto()
       watch(() => route.path, () => nextTick(() => setTimeout(fetchHitokoto, 100)))
-
-      updateLandscapeClass()
-      window.addEventListener('resize', updateLandscapeClass)
-      window.addEventListener('orientationchange', updateLandscapeClass)
     })
   }
 }
