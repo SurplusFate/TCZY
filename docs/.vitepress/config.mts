@@ -161,36 +161,7 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
-    // 横屏提示：电脑模式下横屏时提示用户切换回手机模式
-    ['script', {}, `
-(function(){
-  function check(){
-    var w=window.innerWidth,h=window.innerHeight;
-    var isLandscape=w>h&&h<900;
-    // 电脑模式判断：横屏时宽度很大（>=960）说明是电脑模式模拟的桌面视口
-    var isDesktopMode=isLandscape&&w>=960;
-    if(isDesktopMode){
-      var tip=document.getElementById('tc-desktop-tip');
-      if(!tip){
-        tip=document.createElement('div');
-        tip.id='tc-desktop-tip';
-        tip.innerHTML='💡 当前为电脑模式，横屏显示可能异常。建议切换为<b>手机模式</b>获得最佳体验。';
-        tip.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:#fff3cd;color:#856404;padding:8px 16px;font-size:13px;text-align:center;border-bottom:1px solid #ffeaa7;line-height:1.5;';
-        document.body.appendChild(tip);
-      }
-    }else{
-      var tip=document.getElementById('tc-desktop-tip');
-      if(tip) tip.remove();
-    }
-  }
-  function init(){
-    if(document.body) check();
-    else setTimeout(init,100);
-  }
-  init();
-  window.addEventListener('resize',check);
-  window.addEventListener('orientationchange',check);
-})();`],
+    // 可在此添加全局 head 标签
   ],
   
   vite: {
