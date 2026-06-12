@@ -2,12 +2,6 @@
 
 > 欢迎来到我的笔记库！这里汇集了产品知识、企业文化和培训资料。
 
-<div class="tc-card tc-card-blue">
-<p class="tc-title tc-blue">💡 核心要点</p>
-<p class="tc-body">欢迎来到我的笔记库！这里汇集了产品知识、企业文化和培训资料。</p>
-</div>
-
----
 ---
 
 ## 📊 笔记统计
